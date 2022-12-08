@@ -3,9 +3,11 @@ import React from "react";
 
 import { RootContainer } from "../ContextNavigationContainer";
 import getPathFromState, { State } from "../fork/getPathFromState";
-import { HrefObject } from "./href";
+import { getNameFromFilePath } from "../matchers";
+import { useContextKey, useRouteNode } from "../Route";
 
-type RouteInfo = Omit<Required<HrefObject>, "query"> & {
+type RouteInfo = {
+  params: Record<string, string>;
   /** Normalized path representing the selected route `/[id]?id=normal` -> `/normal` */
   href: string;
 };
@@ -17,17 +19,15 @@ function getRouteInfoFromState(
   if (!state) {
     return {
       href: "",
-      pathname: "",
       params: {},
     };
   }
 
-  const pathname = getNormalizedStatePath(getPathFromState(state, false));
   const href = getPathFromState(state, true);
 
   return {
     href,
-    ...pathname,
+    params: getQueryParams(href),
   };
 }
 
@@ -49,16 +49,16 @@ function compareShallowRecords(a: Record<string, any>, b: Record<string, any>) {
 }
 
 function compareRouteInfo(a: RouteInfo, b: RouteInfo) {
-  return (
-    a.href === b.href &&
-    a.pathname === b.pathname &&
-    compareShallowRecords(a.params, b.params)
-  );
+  return a.href === b.href && compareShallowRecords(a.params, b.params);
+}
+
+export function usePathname(): string {
+  const key = useContextKey();
+  return getNameFromFilePath(key);
 }
 
 export function useHref(): RouteInfo {
   const getPathFromState = useGetPathFromState();
-
   const navigation = RootContainer.getRef();
   const [routeInfo, setRouteInfo] = React.useState<RouteInfo>(
     getRouteInfoFromState(getPathFromState, navigation?.getRootState())
@@ -101,36 +101,23 @@ export function useGetPathFromState() {
       if (linking.options?.getPathFromState) {
         return linking.options.getPathFromState(
           state,
-          asPath ? linking.options.config : undefined
+          linking.options.config
+          // asPath ? linking.options.config : undefined
         );
       }
-      return getPathFromState(
-        state,
-        asPath ? linking.options?.config : undefined
-      );
+      return getPathFromState(state, linking.options?.config);
     },
     [linking.options]
   );
 }
 
 // TODO: Split up getPathFromState to return all this info at once.
-function getNormalizedStatePath(statePath: string) {
-  const pathname =
-    "/" +
-    (statePath
-      .split("/")
-      .map((value) => decodeURIComponent(value))
-      .filter(Boolean)
-      .join("/") || "");
-
+function getQueryParams(pathname: string) {
   const components = pathname.split("?");
 
-  return {
-    pathname: components[0],
-    // TODO: This is not efficient, we should generate based on the state instead
-    // of converting to string then back to object
-    params: parseQueryString(components[1] ?? ""),
-  };
+  // TODO: This is not efficient, we should generate based on the state instead
+  // of converting to string then back to object
+  return parseQueryString(components[1] ?? "");
 }
 
 function parseQueryString(val: string) {

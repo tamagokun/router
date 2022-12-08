@@ -286,7 +286,7 @@ function synthesizePathFromPattern({
   params: Record<string, any>;
 }) {
   return pattern
-    .split("/")
+    ?.split("/")
     .map((p, i) => {
       const name = getParamName(p);
 
@@ -335,7 +335,7 @@ function getParamsWithConventionsCollapsed({
 
   // Remove the params present in the pattern since we'll only use the rest for query string
 
-  const segments = pattern.split("/");
+  const segments = pattern?.split("/");
 
   // Dynamic Routes
   segments

@@ -64,7 +64,6 @@ The `Href` type is a union of the following types:
 The `useHref` hook provides the current location information for a route.
 
 - **href**: _`string`_ The relative normalized path that would show up in the URL bar.
-- **pathname**: _`string`_ The relative template path reflecting the current route. e.g. `/profile/[id]`.
 - **params**: _`Record<string, any>`_ Query parameters for the current route. e.g. `{ id: '123' }`.
 
 Given a route at `app/profile/[id].tsx` if the hook is called while the URL is `/profile/123`, the results of `useHref` would be as follows:
@@ -72,9 +71,18 @@ Given a route at `app/profile/[id].tsx` if the hook is called while the URL is `
 ```js
 {
   href: "/profile/123",
-  pathname: "/profile/[id]",
   params: { id: "123" },
 }
+```
+
+## `usePathname` API
+
+The `usePathname` hook provides the current path with conventions intact.
+
+Given a route at `app/profile/[id].tsx` if the hook is called while the URL is `/profile/123`, the results of `useHref` would be as follows:
+
+```js
+"/profile/[id]";
 ```
 
 ## Navigation prop

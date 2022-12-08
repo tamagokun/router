@@ -1,11 +1,15 @@
+import { Link, usePathname } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Page() {
+  const pathname = usePathname();
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
+        <Text style={styles.title}>Next: {pathname}</Text>
+        <Link href=".." style={styles.subtitle}>
+          Go back
+        </Link>
       </View>
     </View>
   );

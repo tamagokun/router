@@ -15,5 +15,5 @@ export { RootContainer } from "./ContextNavigationContainer";
 export * as Linking from "./link/linking";
 
 export { SplashScreen } from "./views/Splash";
-export { useHref } from "./link/useHref";
+export { useHref, usePathname } from "./link/useHref";
 export { useNavigation } from "./useNavigation";
