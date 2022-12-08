@@ -2,9 +2,9 @@ import { LinkingContext } from "@react-navigation/native";
 import React from "react";
 
 import { RootContainer } from "../ContextNavigationContainer";
+import { useContextKey } from "../Route";
 import getPathFromState, { State } from "../fork/getPathFromState";
 import { getNameFromFilePath } from "../matchers";
-import { useContextKey, useRouteNode } from "../Route";
 
 type RouteInfo = {
   params: Record<string, string>;
