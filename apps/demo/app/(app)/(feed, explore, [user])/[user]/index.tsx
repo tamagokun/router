@@ -1,11 +1,32 @@
-import { Link } from "expo-router";
+import { Link, useSearchParams } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
+import { GoogleAuth } from "../../../../etc/auth/google";
 
-export default function Page({ route }) {
+export default function Page() {
+  const params = useSearchParams();
+  const user = params.get("user");
+
+
+  const signOut = GoogleAuth.useSignOut();
+  if (user === 'me') {
+    return (
+      <View style={styles.container}>
+      <View style={styles.main}>
+        <Text style={styles.title}>My Profile</Text>
+
+        <Text style={styles.title} onPress={() => {
+          signOut();
+        }}>Sign Out</Text>
+      </View>
+    </View>
+    )
+  }
+
+
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>User: {route.params?.user}</Text>
+        <Text style={styles.title}>User: {user}</Text>
 
         <Link href="/([user])/compose">User -> Compose</Link>
         <Link href="./compose">Local -> Compose</Link>

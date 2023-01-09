@@ -12,8 +12,11 @@ export default function RootLayout() {
       <Tabs.Screen name="(explore)" options={{ title: "Search" }} />
       <Tabs.Screen
         name="([user])"
-        initialParams={{ user: "foobar" }}
-        options={{ title: "Profile" }}
+        options={{
+          // HACK
+          href: "/([user])/me",
+          title: "Profile",
+        }}
       />
     </Tabs>
   );
