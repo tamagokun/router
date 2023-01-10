@@ -1,19 +1,19 @@
 import { useRouter } from "expo-router";
 // import ErrorPage from "next/error";
-import { Head } from "../../../components/head";
+import { Head } from "../../components/head";
 
 import { Article } from "@expo/html-elements";
-import Container from "../../../components/container";
-import PostBody from "../../../components/post-body";
-import Header from "../../../components/header";
-import PostHeader from "../../../components/post-header";
-import Layout from "../../../components/layout";
-import PostTitle from "../../../components/post-title";
+import Container from "../../components/container";
+import PostBody from "../../components/post-body";
+import Header from "../../components/header";
+import PostHeader from "../../components/post-header";
+import Layout from "../../components/layout";
+import PostTitle from "../../components/post-title";
 
 // import { getPostBySlug, getAllPosts } from "../../../lib/api";
 // import markdownToHtml from "../../../lib/markdownToHtml";
 // import { CMS_NAME } from "../../../lib/constants";
-import type PostType from "../../../interfaces/post";
+import type PostType from "../../interfaces/post";
 import { Text } from "react-native";
 
 type Props = {

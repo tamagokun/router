@@ -1,7 +1,7 @@
 import { View } from "@bacons/react-views";
 import { Main } from "@expo/html-elements";
 
-import Alert from "./alert";
+import { Alert } from "./alert";
 import Footer from "./footer";
 import Meta from "./meta";
 
@@ -15,7 +15,7 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta />
       <View className="min-h-screen">
-        <Alert preview={preview} />
+        <Alert />
         <Main>{children}</Main>
       </View>
       <Footer />

@@ -1,13 +1,14 @@
-import Container from "../../components/container";
-import MoreStories from "../../components/more-stories";
-import HeroPost from "../../components/hero-post";
-import Intro from "../../components/intro";
-import Layout from "../../components/layout";
-// import { getAllPosts } from "../../lib/api";
-// import { CMS_NAME } from "../../lib/constants";
-import Post from "../../interfaces/post";
+import Container from "../components/container";
+import MoreStories from "../components/more-stories";
+import HeroPost from "../components/hero-post";
+import Intro from "../components/intro";
+import Layout from "../components/layout";
+// import { getAllPosts } from "../lib/api";
+// import { CMS_NAME } from "../lib/constants";
+import Post from "../interfaces/post";
 const CMS_NAME = "Markdown";
-import { Head } from "../../components/head";
+import { Head } from "../components/head";
+import { View } from "react-native";
 
 type Props = {
   allPosts: Post[];
@@ -15,6 +16,7 @@ type Props = {
 
 export default function Index() {
   // Emulate getStaticProps working.
+
   return <IndexQualified allPosts={[]} />;
 }
 
@@ -46,16 +48,17 @@ function IndexQualified({ allPosts }: Props) {
   );
 }
 
-export const getStaticProps = async () => {
-  // const allPosts = getAllPosts([
-  //   "title",
-  //   "date",
-  //   "slug",
-  //   "author",
-  //   "coverImage",
-  //   "excerpt",
-  // ]);
-  // return {
-  //   props: { allPosts },
-  // };
-};
+// export const getStaticProps = async () => {
+//   const allPosts = getAllPosts([
+//     "title",
+//     "date",
+//     "slug",
+//     "author",
+//     "coverImage",
+//     "excerpt",
+//   ]);
+
+//   return {
+//     props: { allPosts },
+//   };
+// };

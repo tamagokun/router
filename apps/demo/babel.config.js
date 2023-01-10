@@ -6,7 +6,16 @@ module.exports = function (api) {
       require.resolve("expo-router/babel"),
       "@babel/plugin-proposal-export-namespace-from",
       "react-native-reanimated/plugin",
-      require.resolve("nativewind/babel"),
+      [
+        require.resolve("nativewind/babel"),
+        {
+          allowModuleTransform: [
+            "@expo/html-elements",
+            "@bacons/react-views",
+            "expo-router",
+          ],
+        },
+      ],
     ],
   };
 };
