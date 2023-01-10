@@ -7,7 +7,7 @@ const IFooter = () => {
       <Container>
         <View className="py-24 flex flex-col lg:flex-row items-center">
           <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
+            Universal React
           </h3>
           <View className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
             <a
@@ -18,7 +18,7 @@ const IFooter = () => {
             </a>
             <Pressable className="hover:underline">
               <a
-                href={`github.com/expo/router`}
+                href="https://github.com/expo/router"
                 className="mx-3 font-bold hover:underline"
               >
                 View on GitHub

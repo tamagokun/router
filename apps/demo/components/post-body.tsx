@@ -8,10 +8,7 @@ type Props = {
 const PostBody = ({ content }: Props) => {
   return (
     <View className="max-w-2xl mx-auto">
-      <View
-      // className={markdownStyles['markdown']}
-      // dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <p>{content}</p>
     </View>
   );
 };
