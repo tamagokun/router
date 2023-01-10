@@ -27,7 +27,7 @@ function IndexQualified({ allPosts }: Props) {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Expo Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
           <Intro />

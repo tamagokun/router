@@ -1,4 +1,3 @@
-import cn from "classnames";
 import { Link } from "expo-router";
 import { View, Image, Pressable, Platform } from "react-native";
 
