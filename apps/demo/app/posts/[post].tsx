@@ -29,8 +29,7 @@ import { posts } from "../../posts/data";
 
 export default function Post() {
   const params = useSearchParams();
-  console.log("param:", params.get("post"));
-  const post = posts.find((post) => post.slug === params.get("post"));
+  const post = posts.find((post) => post.slug === params.post);
   // Emulate `getStaticProps` working.
   return <PostQualified post={post} preview={true} />;
 }
