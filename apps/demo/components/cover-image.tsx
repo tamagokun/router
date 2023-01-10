@@ -1,6 +1,6 @@
 import cn from "classnames";
 import { Link } from "expo-router";
-import { View, Image } from "react-native";
+import { View, Image, Pressable, Platform } from "react-native";
 
 type Props = {
   title: string;
@@ -13,20 +13,27 @@ const CoverImage = ({ title, src, slug }: Props) => {
     <Image
       source={{ uri: src, width: 1300, height: 630 }}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-sm w-full", {
-        "hover:shadow-lg transition-shadow duration-200": slug,
-      })}
+      className={
+        "shadow-sm w-full hover:shadow-lg transition-shadow duration-200"
+      }
     />
   );
   return (
     <View className="sm:mx-0">
-      {slug ? (
-        <Link href={`/posts/${slug}`} aria-label={title}>
-          {image}
-        </Link>
-      ) : (
-        image
-      )}
+      {slug
+        ? Platform.select({
+            web: (
+              <Link href={`/posts/${slug}`} aria-label={title}>
+                {image}
+              </Link>
+            ),
+            default: (
+              <Link asChild href={`/posts/${slug}`} aria-label={title}>
+                <Pressable>{image}</Pressable>
+              </Link>
+            ),
+          })
+        : image}
     </View>
   );
 };
