@@ -1,6 +1,4 @@
-import "@expo/html-elements";
 import { Pressable, Text, View } from "react-native";
-
 import Container from "./container";
 
 export const Alert = () => {

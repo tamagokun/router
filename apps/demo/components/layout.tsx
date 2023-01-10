@@ -1,5 +1,4 @@
 import { View } from "@bacons/react-views";
-import "@expo/html-elements";
 import { ScrollView } from "react-native";
 
 import { Alert } from "./alert";

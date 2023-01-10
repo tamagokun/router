@@ -1,4 +1,3 @@
-import "@expo/html-elements";
 const CMS_NAME = "Markdown";
 
 const Intro = () => {

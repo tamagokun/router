@@ -1,4 +1,3 @@
-import "@expo/html-elements";
 import Container from "./container";
 import { Pressable, View } from "react-native";
 

@@ -5,7 +5,7 @@ import { Link } from "expo-router";
 import type Author from "../interfaces/author";
 
 import { View } from "react-native";
-import "@expo/html-elements";
+
 type Props = {
   title: string;
   coverImage: string;

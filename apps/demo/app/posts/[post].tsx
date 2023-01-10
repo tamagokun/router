@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { useRouter, useSearchParams } from "expo-router";
 // import ErrorPage from "next/error";
 import { Head } from "../../components/head";
 
@@ -12,7 +12,7 @@ import PostTitle from "../../components/post-title";
 
 // import { getPostBySlug, getAllPosts } from "../../../lib/api";
 // import markdownToHtml from "../../../lib/markdownToHtml";
-// import { CMS_NAME } from "../../../lib/constants";
+
 import type PostType from "../../interfaces/post";
 import { Text } from "react-native";
 
@@ -25,9 +25,13 @@ function ErrorPage() {
   return <Text>Error 404!1!</Text>;
 }
 
+import { posts } from "../../posts/data";
+
 export default function Post() {
+  const params = useSearchParams();
+  const post = posts.find((post) => post.slug === params.get("post"));
   // Emulate `getStaticProps` working.
-  return <PostQualified post={{}} preview={true} />;
+  return <PostQualified post={post} preview={true} />;
 }
 function PostQualified({ post, preview }: Props) {
   const router = useRouter();

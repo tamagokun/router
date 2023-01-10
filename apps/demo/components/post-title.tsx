@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import "@expo/html-elements";
+
 type Props = {
   children?: ReactNode;
 };
