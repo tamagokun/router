@@ -12,14 +12,14 @@ export default function RootLayoutContext() {
 function RootLayout() {
   const [auth] = GoogleAuth.useToken();
 
-  if (auth.isLoading) {
-    return null;
-  }
+  //   if (auth.isLoading) {
+  //     return null;
+  //   }
 
   return (
     <Layout>
-      <Layout.Screen name="(app)" redirect={!auth.value} />
-      <Layout.Screen name="(auth)" redirect={!!auth.value} />
+      {/* <Layout.Screen name="(app)" redirect={false} />
+      <Layout.Screen name="(auth)" redirect={true} /> */}
       <Children />
     </Layout>
   );
