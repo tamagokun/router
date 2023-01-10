@@ -2,7 +2,7 @@ import { useRouter } from "expo-router";
 // import ErrorPage from "next/error";
 import { Head } from "../../components/head";
 
-import { Article } from "@expo/html-elements";
+import "@expo/html-elements";
 import Container from "../../components/container";
 import PostBody from "../../components/post-body";
 import Header from "../../components/header";
@@ -42,7 +42,7 @@ function PostQualified({ post, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <Article className="mb-32">
+            <article className="mb-32">
               <Head>
                 <title>{post.title} | Next.js Blog Example with Markdown</title>
                 <meta property="og:image" content={post.ogImage.url} />
@@ -54,7 +54,7 @@ function PostQualified({ post, preview }: Props) {
                 author={post.author}
               />
               <PostBody content={post.content} />
-            </Article>
+            </article>
           </>
         )}
       </Container>

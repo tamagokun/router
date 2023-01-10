@@ -5,7 +5,7 @@ import { Link } from "expo-router";
 import type Author from "../interfaces/author";
 
 import { View } from "react-native";
-import { Section, H3, P } from "@expo/html-elements";
+import "@expo/html-elements";
 
 type Props = {
   title: string;
@@ -25,13 +25,13 @@ const HeroPost = ({
   slug,
 }: Props) => {
   return (
-    <Section>
+    <section>
       <View className="mb-8 md:mb-16">
         <CoverImage title={title} src={coverImage} slug={slug} />
       </View>
       <View className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <View>
-          <H3 className="mb-4 text-4xl lg:text-5xl leading-tight">
+          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
             <Link
               as={`/posts/${slug}`}
               href="/posts/[slug]"
@@ -39,17 +39,17 @@ const HeroPost = ({
             >
               {title}
             </Link>
-          </H3>
+          </h3>
           <View className="mb-4 md:mb-0 text-lg">
             <DateFormatter dateString={date} />
           </View>
         </View>
         <View>
-          <P className="text-lg leading-relaxed mb-4">{excerpt}</P>
+          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
           <Avatar name={author.name} picture={author.picture} />
         </View>
       </View>
-    </Section>
+    </section>
   );
 };
 

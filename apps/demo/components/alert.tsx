@@ -1,4 +1,4 @@
-import { A } from "@expo/html-elements";
+import "@expo/html-elements";
 import { Pressable, Text, View } from "react-native";
 
 import Container from "./container";
@@ -10,9 +10,9 @@ export const Alert = () => {
         <Text className="py-2 text-center text-sm">
           The source code for this blog is{" "}
           <Pressable className="hover:text-blue-600 duration-200 transition-colors">
-            <A href={`https://github.com/expo/router`} className="underline">
+            <a href={`https://github.com/expo/router`} className="underline">
               available on GitHub
-            </A>
+            </a>
           </Pressable>
           .
         </Text>

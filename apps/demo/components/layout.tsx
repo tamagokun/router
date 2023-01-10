@@ -1,5 +1,6 @@
 import { View } from "@bacons/react-views";
-import { Main } from "@expo/html-elements";
+import "@expo/html-elements";
+import { ScrollView } from "react-native";
 
 import { Alert } from "./alert";
 import Footer from "./footer";
@@ -14,11 +15,13 @@ const Layout = ({ preview, children }: Props) => {
   return (
     <>
       <Meta />
-      <View className="min-h-screen">
-        <Alert />
-        <Main>{children}</Main>
-      </View>
-      <Footer />
+      <ScrollView style={{ flex: 1 }}>
+        <View className="min-h-screen">
+          <Alert />
+          <main>{children}</main>
+        </View>
+        <Footer />
+      </ScrollView>
     </>
   );
 };
