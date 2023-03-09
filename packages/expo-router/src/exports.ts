@@ -16,8 +16,8 @@ export { Navigator, Slot };
 // Expo Router Views
 export { ExpoRoot } from "./ExpoRoot";
 export { Unmatched } from "./views/Unmatched";
-export { ErrorBoundaryProps } from "./views/Try";
 export { ErrorBoundary } from "./views/ErrorBoundary";
+export type { ErrorBoundaryProps } from "./views/Try";
 
 // Platform
 export { SplashScreen } from "./views/Splash";
